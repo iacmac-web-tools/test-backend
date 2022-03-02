@@ -22,13 +22,20 @@ namespace BackTask.Controllers
             _context = context;
         }
 
-        // GET: api/theses
+
+        /// <summary>
+        /// Получение пострнаничного списка тезисов
+        /// </summary>
+        /// GET: api/theses
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ThesisResource>>> Gettheses()
         {
             return await _context.theses.ToListAsync();
         }
 
+        /// <summary>
+        /// Получить подробную информацию по одному тезису
+        /// </summary>
         // GET: api/theses/5
         [HttpGet("{id}")]
         public async Task<ActionResult<ThesisResource>> GetThesisResource(int id)
@@ -43,6 +50,9 @@ namespace BackTask.Controllers
             return thesisResource;
         }
 
+        /// <summary>
+        /// Изменить тезис
+        /// </summary>
         // PUT: api/theses/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
@@ -74,6 +84,9 @@ namespace BackTask.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Добавить новый тезис
+        /// </summary>
         // POST: api/theses
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
@@ -85,6 +98,9 @@ namespace BackTask.Controllers
             return CreatedAtAction("GetThesisResource", new { id = thesisResource.Id }, thesisResource);
         }
 
+        /// <summary>
+        /// Удалить тезис
+        /// </summary>
         // DELETE: api/theses/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteThesisResource(int id)
