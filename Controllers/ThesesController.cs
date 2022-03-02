@@ -12,8 +12,8 @@ using BackTask.Models;
 namespace BackTask.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
     [Produces("application/json")]
+    [ApiController]
     public class thesesController : ControllerBase
     {
         private readonly DataContext _context;
@@ -23,19 +23,69 @@ namespace BackTask.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// Получение полного списка тезисов
+        /// </summary>
+        /// GET: api/theses/all
+        [HttpGet("all")]
+        public async Task<ActionResult<IEnumerable<ThesisTableItemResource>>> GetAlltheses()
+        {
+            var theses = await _context.theses.ToListAsync();
+            List<ThesisTableItemResource> myItems = new List<ThesisTableItemResource>();
+            int index = 0;
+            foreach(var item in theses){
+                myItems.Add(new ThesisTableItemResource());
+                myItems[index].Id = item.Id;
+                myItems[index].mainAuthor = (item.mainAuthor.lastName + ' ' + item.mainAuthor.firstName + ' ' + item.mainAuthor.middleName);
+                myItems[index].contactEmail = item.contactEmail;
+                myItems[index].topic = item.topic;
+                myItems[index].created = item.created;
+                myItems[index].updated = item.updated;
+                index++;
+            }
+            return myItems;
+        }
 
         /// <summary>
-        /// Получение пострнаничного списка тезисов
+        /// Получение постраничного списка тезисов
         /// </summary>
-        /// GET: api/theses
+        /// GET: api/theses/all
         [HttpGet]
-        // public async Task<ActionResult<IEnumerable<ThesisResource>>> Gettheses()
-        public async Task<ActionResult<IEnumerable<ThesisResource>>> Gettheses()
+        public async Task<ActionResult<ThesisTableItemResourceDataTableResult>> Gettheses(int page = 1, int pageSize = 10)
         {
-            // return await _context.theses.ToListAsync();
-
             var theses = await _context.theses.ToListAsync();
-            return theses;
+            
+            ThesisTableItemResourceDataTableResult myItemsTable = new ThesisTableItemResourceDataTableResult();
+            myItemsTable.page = page;
+            myItemsTable.pageSize = pageSize;
+            myItemsTable.totalItems = theses.Count;
+            double tP = Convert.ToDouble(myItemsTable.totalItems)/Convert.ToDouble(myItemsTable.pageSize);
+            myItemsTable.totalPages = Convert.ToInt32(Math.Ceiling(tP));
+
+            int startIdx = myItemsTable.pageSize * (myItemsTable.page - 1);
+            int endIdx = 0;
+
+            if((startIdx + myItemsTable.pageSize) < myItemsTable.totalItems){
+                endIdx = startIdx + myItemsTable.pageSize;
+            }
+            else{
+                endIdx = startIdx + (myItemsTable.totalItems - startIdx);
+            }
+
+            int idx = 0;
+
+            for(int i = startIdx; i < endIdx; i++){
+                myItemsTable.items.Add(new ThesisTableItemResource());
+                myItemsTable.items[idx].Id = theses[i].Id;
+                myItemsTable.items[idx].mainAuthor = (theses[i].mainAuthor.lastName + ' ' + theses[i].mainAuthor.firstName + ' ' + theses[i].mainAuthor.middleName);
+                myItemsTable.items[idx].contactEmail = theses[i].contactEmail;
+                myItemsTable.items[idx].topic = theses[i].topic;
+                myItemsTable.items[idx].created = theses[i].created;
+                myItemsTable.items[idx].updated = theses[i].updated;
+                idx++;
+            }
+
+            return myItemsTable;
         }
 
         /// <summary>

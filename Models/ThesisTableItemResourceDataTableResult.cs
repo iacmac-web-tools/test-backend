@@ -10,6 +10,6 @@
         
         public int totalPages { get; set; }
         
-        public List<ThesisTableItemResource>? items { get; set; }
+        public List<ThesisTableItemResource>? items { get; set; } = new List<ThesisTableItemResource>();
     }
 }

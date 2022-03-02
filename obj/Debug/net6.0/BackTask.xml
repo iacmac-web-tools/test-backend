@@ -4,11 +4,17 @@
         <name>BackTask</name>
     </assembly>
     <members>
-        <member name="M:BackTask.Controllers.thesesController.Gettheses">
+        <member name="M:BackTask.Controllers.thesesController.GetAlltheses">
             <summary>
-            Получение пострнаничного списка тезисов
+            Получение полного списка тезисов
             </summary>
-            GET: api/theses
+            GET: api/theses/all
+        </member>
+        <member name="M:BackTask.Controllers.thesesController.Gettheses(System.Int32,System.Int32)">
+            <summary>
+            Получение постраничного списка тезисов
+            </summary>
+            GET: api/theses/all
         </member>
         <member name="M:BackTask.Controllers.thesesController.GetThesisResource(System.Int32)">
             <summary>
