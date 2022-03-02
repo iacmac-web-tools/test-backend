@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BackTask</name>
+    </assembly>
+    <members>
+        <member name="M:BackTask.Controllers.thesesController.GetAlltheses">
+            <summary>
+            Получение полного списка тезисов
+            </summary>
+            GET: api/theses/all
+        </member>
+        <member name="M:BackTask.Controllers.thesesController.Gettheses(System.Int32,System.Int32)">
+            <summary>
+            Получение постраничного списка тезисов
+            </summary>
+            GET: api/theses/all
+        </member>
+        <member name="M:BackTask.Controllers.thesesController.GetThesisResource(System.Int32)">
+            <summary>
+            Получить подробную информацию по одному тезису
+            </summary>
+        </member>
+        <member name="M:BackTask.Controllers.thesesController.PutThesisResource(System.Int32,BackTask.Models.ThesisForm)">
+            <summary>
+            Изменить тезис
+            </summary>
+        </member>
+        <member name="M:BackTask.Controllers.thesesController.PostThesisResource(BackTask.Models.ThesisForm)">
+            <summary>
+            Добавить новый тезис
+            </summary>
+        </member>
+        <member name="M:BackTask.Controllers.thesesController.DeleteThesisResource(System.Int32)">
+            <summary>
+            Удалить тезис
+            </summary>
+        </member>
+    </members>
+</doc>
