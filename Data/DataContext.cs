@@ -1,5 +1,6 @@
 using BackTask.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.CodeAnalysis;
 
 namespace BackTask.Data
 {
@@ -7,6 +8,6 @@ namespace BackTask.Data
     {
         public DataContext(DbContextOptions<DataContext> options) :base(options) {}
 
-        DbSet<DataContext> Theses { get; set; } = null!;
+        public DbSet<ThesisResource> theses { get; set; } = null!;
     }
 }
