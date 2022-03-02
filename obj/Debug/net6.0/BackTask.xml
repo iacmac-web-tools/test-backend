@@ -21,7 +21,7 @@
             Получить подробную информацию по одному тезису
             </summary>
         </member>
-        <member name="M:BackTask.Controllers.thesesController.PutThesisResource(System.Int32,BackTask.Models.ThesisResource)">
+        <member name="M:BackTask.Controllers.thesesController.PutThesisResource(System.Int32,BackTask.Models.ThesisForm)">
             <summary>
             Изменить тезис
             </summary>

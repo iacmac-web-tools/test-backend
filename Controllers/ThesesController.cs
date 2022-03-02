@@ -111,12 +111,21 @@ namespace BackTask.Controllers
         // PUT: api/theses/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutThesisResource(int id, ThesisResource thesisResource)
+        public async Task<IActionResult> PutThesisResource(int id, ThesisForm thesisForm)
         {
-            if (id != thesisResource.Id)
+            var thesisResource = await _context.theses.FindAsync(id);
+            
+            if (thesisResource == null)
             {
-                return BadRequest();
+                return NotFound();
             }
+
+            thesisResource.mainAuthor = thesisForm.mainAuthor;
+            thesisResource.contactEmail = thesisForm.contactEmail;
+            thesisResource.otherAuthors = thesisForm.otherAuthors;
+            thesisResource.topic = thesisForm.topic;
+            thesisResource.content = thesisForm.content;
+            thesisResource.updated = DateTime.Now;
 
             _context.Entry(thesisResource).State = EntityState.Modified;
 
