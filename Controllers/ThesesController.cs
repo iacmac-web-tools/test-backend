@@ -93,7 +93,7 @@ namespace BackTask.Controllers
         /// </summary>
         // GET: api/theses/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<ThesisResource>> GetThesisResource(int id)
+        public async Task<ActionResult<ThesisResource>> GetThesisResource(int id = 1)
         {
             var thesisResource = await _context.theses.FindAsync(id);
 
@@ -145,12 +145,21 @@ namespace BackTask.Controllers
         // POST: api/theses
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<ThesisResource>> PostThesisResource(ThesisResource thesisResource)
+        public async Task<ActionResult<ThesisResource>> PostThesisResource(ThesisForm thesisForm)
         {
-            _context.theses.Add(thesisResource);
+            ThesisResource newTheses = new ThesisResource();
+            newTheses.mainAuthor = thesisForm.mainAuthor;
+            newTheses.contactEmail = thesisForm.contactEmail;
+            newTheses.otherAuthors = thesisForm.otherAuthors;
+            newTheses.topic = thesisForm.topic;
+            newTheses.content = thesisForm.content;
+            newTheses.created = DateTime.Now;
+            newTheses.updated = DateTime.Now;
+
+            _context.theses.Add(newTheses);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetThesisResource", new { id = thesisResource.Id }, thesisResource);
+            return CreatedAtAction("GetThesisResource", new { id = newTheses.Id }, newTheses);
         }
 
         /// <summary>

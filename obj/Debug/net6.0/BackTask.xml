@@ -26,7 +26,7 @@
             Изменить тезис
             </summary>
         </member>
-        <member name="M:BackTask.Controllers.thesesController.PostThesisResource(BackTask.Models.ThesisResource)">
+        <member name="M:BackTask.Controllers.thesesController.PostThesisResource(BackTask.Models.ThesisForm)">
             <summary>
             Добавить новый тезис
             </summary>
