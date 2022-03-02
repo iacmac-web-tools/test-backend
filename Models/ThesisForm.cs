@@ -4,15 +4,20 @@ namespace BackTask.Models
 {
     public class ThesisForm
     {
-        public PersonResource mainAuthor { get; set; } = new PersonResource();
+        [Required]
+        public PersonResource mainAuthor{ get; set; } = null!;
 
+        [Required]
         [StringLength(255)]
         public string? contactEmail { get; set; } = string.Empty;
-        public List<PersonResource>? otherAuthors { get; set; } = new List<PersonResource>();
+        
+        public List<PersonResource>? otherAuthors { get; set; } = null!;
 
+        [Required]
         [StringLength(500)]
         public string topic { get; set; } = string.Empty;
 
+        [Required]
         [StringLength(5000)]
         public string? content { get; set; } = String.Empty;
     }

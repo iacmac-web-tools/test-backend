@@ -13,6 +13,7 @@ namespace BackTask.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Produces("application/json")]
     public class thesesController : ControllerBase
     {
         private readonly DataContext _context;
@@ -28,9 +29,13 @@ namespace BackTask.Controllers
         /// </summary>
         /// GET: api/theses
         [HttpGet]
+        // public async Task<ActionResult<IEnumerable<ThesisResource>>> Gettheses()
         public async Task<ActionResult<IEnumerable<ThesisResource>>> Gettheses()
         {
-            return await _context.theses.ToListAsync();
+            // return await _context.theses.ToListAsync();
+
+            var theses = await _context.theses.ToListAsync();
+            return theses;
         }
 
         /// <summary>
