@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Theses.Api.Filters;
 using Theses.Api.Mappings.Create;
 using Theses.Api.Mappings.Thesis;
 using Theses.Api.Mappings.Update;
@@ -11,6 +12,7 @@ namespace Theses.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[ApiExceptionFilter]
 public class ThesesController : ControllerBase
 {
     private readonly ISender _sender;
@@ -30,7 +32,7 @@ public class ThesesController : ControllerBase
 
         var thesisMapper = new ThesisMapper();
         var thesis = thesisMapper.ThesisToThesisDto(result.Value);
-        
+
         return Ok(thesis);
     }
 
@@ -42,7 +44,7 @@ public class ThesesController : ControllerBase
 
         var mapper = new ThesisMapper();
         var thesis = mapper.ThesisToThesisDto(result.Value);
-        
+
         return Ok(thesis);
     }
 
@@ -52,7 +54,7 @@ public class ThesesController : ControllerBase
         var result = await _sender.Send(GetAllThesesQuery.Instance);
         var mapper = new ThesisMapper();
         var theses = result.Select(x => mapper.ThesisToThesisDto(x));
-        
+
         return Ok(theses);
     }
 
@@ -66,7 +68,7 @@ public class ThesesController : ControllerBase
 
         var thesisMapper = new ThesisMapper();
         var thesis = thesisMapper.ThesisToThesisDto(result.Value);
-        
+
         return Ok(thesis);
     }
 
@@ -75,7 +77,7 @@ public class ThesesController : ControllerBase
     {
         var command = new DeleteThesisCommand(id);
         var result = await _sender.Send(command);
-        
+
         return result.IsSuccess
             ? Ok()
             : BadRequest(result.Errors);
