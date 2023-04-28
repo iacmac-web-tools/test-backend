@@ -1,6 +1,6 @@
-using Theses.Api.Dtos.Person;
+using Theses.Api.Mappings.Person;
 
-namespace Theses.Api.Dtos.Create;
+namespace Theses.Api.Mappings.Create;
 
 public record CreateThesisDto(PersonDto MainAuthor, string ContactEmail, ICollection<PersonDto>? OtherAuthors, string Topic,
     string Content);

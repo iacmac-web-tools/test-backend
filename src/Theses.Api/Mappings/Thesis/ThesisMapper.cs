@@ -1,6 +1,6 @@
 ﻿using Riok.Mapperly.Abstractions;
 
-namespace Theses.Api.Dtos.Thesis;
+namespace Theses.Api.Mappings.Thesis;
 
 [Mapper]
 public partial class ThesisMapper
