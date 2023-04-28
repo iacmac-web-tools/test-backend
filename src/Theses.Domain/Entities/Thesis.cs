@@ -1,13 +1,26 @@
 ﻿namespace Theses.Domain.Entities;
 
-public record Thesis(Person MainAuthor, string ContactEmail, ICollection<Person>? OtherAuthors, string Topic, string Content)
+public record Thesis
 {
     public long Id { get; }
-    public Person MainAuthor { get; set; } = MainAuthor;
-    public string ContactEmail { get; set; } = ContactEmail;
-    public ICollection<Person>? OtherAuthors { get; set; } = OtherAuthors;
-    public string Topic { get; set; } = Topic;
-    public string Content { get; set; } = Content;
-    public DateTime Created { get; } = DateTime.UtcNow;
-    public DateTime Updated { get; set; } = DateTime.UtcNow;
+    public Person MainAuthor { get; set; }
+    public string ContactEmail { get; set; }
+    public ICollection<Person>? OtherAuthors { get; set; } = new List<Person>();
+    public string Topic { get; set; }
+    public string Content { get; set; }
+    public DateTime Created { get; set; }
+    public DateTime Updated { get; set; }
+
+    public Thesis(Person mainAuthor, string contactEmail, ICollection<Person>? otherAuthors, string topic, string content)
+    {
+        MainAuthor = mainAuthor;
+        ContactEmail = contactEmail;
+        OtherAuthors = otherAuthors;
+        Topic = topic;
+        Content = content;
+        Created = DateTime.UtcNow;
+        Updated = DateTime.UtcNow;
+    }
+
+    private Thesis() { }
 }
