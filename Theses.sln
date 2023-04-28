@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Theses.Domain", "src\Theses.Domain\Theses.Domain.csproj", "{03701351-6D31-41D8-AC5E-5BCD7C8F10F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Theses.Application", "src\Theses.Application\Theses.Application.csproj", "{D4706CA4-270F-4655-A3E4-AA2E4B0E8739}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{03701351-6D31-41D8-AC5E-5BCD7C8F10F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03701351-6D31-41D8-AC5E-5BCD7C8F10F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03701351-6D31-41D8-AC5E-5BCD7C8F10F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4706CA4-270F-4655-A3E4-AA2E4B0E8739}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4706CA4-270F-4655-A3E4-AA2E4B0E8739}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4706CA4-270F-4655-A3E4-AA2E4B0E8739}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4706CA4-270F-4655-A3E4-AA2E4B0E8739}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

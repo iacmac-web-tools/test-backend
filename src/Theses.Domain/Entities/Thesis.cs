@@ -1,6 +1,6 @@
 ﻿namespace Theses.Domain.Entities;
 
-public record Thesis(Person MainAuthor, string ContactEmail, ICollection<Person> OtherAuthors, string Topic, string Content)
+public record Thesis(Person MainAuthor, string ContactEmail, ICollection<Person>? OtherAuthors, string Topic, string Content)
 {
     public long Id { get; }
     public Person MainAuthor { get; set; } = MainAuthor;
