@@ -6,6 +6,6 @@ public class GetThesisQueryValidator : AbstractValidator<GetThesisQuery>
 {
     public GetThesisQueryValidator()
     {
-        RuleFor(x => x.Id).NotEmpty();
+        RuleFor(x => x.Id).NotNull();
     }
 }
