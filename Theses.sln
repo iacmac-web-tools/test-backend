@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Theses.Infrastructure", "sr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Theses.Api", "src\Theses.Api\Theses.Api.csproj", "{00F4272E-883E-434B-A597-6003C3F55C78}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Theses.IntegrationTests", "tests\Theses.IntegrationTests\Theses.IntegrationTests.csproj", "{B369599C-5F25-4ED8-8C9B-4646A4E92881}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{00F4272E-883E-434B-A597-6003C3F55C78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00F4272E-883E-434B-A597-6003C3F55C78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00F4272E-883E-434B-A597-6003C3F55C78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B369599C-5F25-4ED8-8C9B-4646A4E92881}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B369599C-5F25-4ED8-8C9B-4646A4E92881}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B369599C-5F25-4ED8-8C9B-4646A4E92881}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B369599C-5F25-4ED8-8C9B-4646A4E92881}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
