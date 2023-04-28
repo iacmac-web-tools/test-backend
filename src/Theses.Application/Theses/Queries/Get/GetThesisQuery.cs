@@ -15,7 +15,10 @@ public class GetThesisQueryHandler : IRequestHandler<GetThesisQuery, Result<Thes
 
     public async Task<Result<Thesis>> Handle(GetThesisQuery request, CancellationToken cancellationToken)
     {
-        var entity = await _context.Theses.FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
+        var entity = await _context.Theses
+            .Include(x => x.MainAuthor)
+            .Include(x => x.OtherAuthors)
+            .FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
         return entity is null
             ? Result.Fail<Thesis>("Thesis not found")
             : Result.Ok(entity);
