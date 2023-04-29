@@ -2,11 +2,14 @@
 using Microsoft.AspNetCore.Mvc;
 using Theses.Api.Filters;
 using Theses.Api.Mappings.Create;
+using Theses.Api.Mappings.Get;
 using Theses.Api.Mappings.Thesis;
 using Theses.Api.Mappings.Update;
+using Theses.Application.Common.Models;
 using Theses.Application.Theses.Commands.Delete;
 using Theses.Application.Theses.Queries.Get;
 using Theses.Application.Theses.Queries.GetAll;
+using Theses.Domain.Entities;
 
 namespace Theses.Api.Controllers;
 
@@ -20,6 +23,17 @@ public class ThesesController : ControllerBase
     public ThesesController(ISender sender)
     {
         _sender = sender;
+    }
+
+    [HttpGet]
+    public async Task<ActionResult<PaginatedList<ThesisDto>>> GetPaginatedList([FromQuery] GetPaginatedListDto dto)
+    {
+        var commandMapper = new GetPaginatedListDtoMapper();
+        var command = commandMapper.GetPaginatedListDtoToGetPaginatedListQuery(dto);
+        var result = await _sender.Send(command);
+        var thesisMapper = new ThesisMapper();
+        var theses = thesisMapper.PaginatedThesesToPaginatedThesesDto(result);
+        return Ok(theses);
     }
 
     [HttpPost]
@@ -36,6 +50,16 @@ public class ThesesController : ControllerBase
         return Ok(thesis);
     }
 
+    [HttpGet("all")]
+    public async Task<ActionResult<IReadOnlyCollection<ThesisDto>>> GetAll()
+    {
+        var result = await _sender.Send(GetAllThesesQuery.Instance);
+        var mapper = new ThesisMapper();
+        var theses = mapper.ThesesToThesesDto(result);
+
+        return Ok(theses);
+    }
+
     [HttpGet("{id:long}")]
     public async Task<ActionResult<ThesisDto>> Get(long id)
     {
@@ -46,16 +70,6 @@ public class ThesesController : ControllerBase
         var thesis = mapper.ThesisToThesisDto(result.Value);
 
         return Ok(thesis);
-    }
-
-    [HttpGet("all")]
-    public async Task<ActionResult<IReadOnlyCollection<ThesisDto>>> GetAll()
-    {
-        var result = await _sender.Send(GetAllThesesQuery.Instance);
-        var mapper = new ThesisMapper();
-        var theses = result.Select(x => mapper.ThesisToThesisDto(x));
-
-        return Ok(theses);
     }
 
     [HttpPut("{id:long}")]
