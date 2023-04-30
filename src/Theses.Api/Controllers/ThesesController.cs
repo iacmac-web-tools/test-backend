@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using System.Net;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Theses.Api.Filters;
 using Theses.Api.Mappings.Create;
@@ -24,6 +25,14 @@ public class ThesesController : ControllerBase
         _sender = sender;
     }
 
+    /// <summary>
+    /// Получение постраничного списка тезисов
+    /// </summary>
+    /// <param name="dto"></param>
+    /// <remarks>
+    /// Справка по фильтрации: https://alirezanet.github.io/Gridify/guide/filtering.html.
+    /// Справка по сортировке: https://alirezanet.github.io/Gridify/guide/ordering.html.
+    /// </remarks>
     [HttpGet]
     public async Task<ActionResult<PaginatedList<ThesisDto>>> GetPaginatedList([FromQuery] GetPaginatedListDto dto)
     {
@@ -35,8 +44,13 @@ public class ThesesController : ControllerBase
         return Ok(theses);
     }
 
+    /// <summary>
+    /// Добавить новый тезис
+    /// </summary>
+    /// <param name="dto"></param>
+    /// <returns></returns>
     [HttpPost]
-    public async Task<IActionResult> Create([FromBody] CreateThesisDto dto)
+    public async Task<ActionResult<ThesisDto>> Create([FromBody] CreateThesisDto dto)
     {
         var commandMapper = new CreateThesisDtoMapper();
         var command = commandMapper.CreateThesisDtoToCreateThesisCommand(dto);
@@ -49,6 +63,10 @@ public class ThesesController : ControllerBase
         return Ok(thesis);
     }
 
+    /// <summary>
+    /// Получение полного списка тезисов
+    /// </summary>
+    /// <returns></returns>
     [HttpGet("all")]
     public async Task<ActionResult<IReadOnlyCollection<ThesisDto>>> GetAll()
     {
@@ -59,6 +77,11 @@ public class ThesesController : ControllerBase
         return Ok(theses);
     }
 
+    /// <summary>
+    /// Получить полную информацию по одному тезису
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     [HttpGet("{id:long}")]
     public async Task<ActionResult<ThesisDto>> Get(long id)
     {
@@ -71,6 +94,12 @@ public class ThesesController : ControllerBase
         return Ok(thesis);
     }
 
+    /// <summary>
+    /// Изменить тезис
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="dto"></param>
+    /// <returns></returns>
     [HttpPut("{id:long}")]
     public async Task<ActionResult<ThesisDto>> Update(long id, [FromBody] UpdateThesisDto dto)
     {
@@ -85,6 +114,11 @@ public class ThesesController : ControllerBase
         return Ok(thesis);
     }
 
+    /// <summary>
+    /// Удалить тезис
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     [HttpDelete("{id:long}")]
     public async Task<IActionResult> Delete(long id)
     {
