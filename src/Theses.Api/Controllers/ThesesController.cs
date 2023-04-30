@@ -9,7 +9,6 @@ using Theses.Application.Common.Models;
 using Theses.Application.Theses.Commands.Delete;
 using Theses.Application.Theses.Queries.Get;
 using Theses.Application.Theses.Queries.GetAll;
-using Theses.Domain.Entities;
 
 namespace Theses.Api.Controllers;
 

@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using FluentValidation;
+using Gridify;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Theses.Application.Common.Behaviours;
@@ -15,6 +16,8 @@ public static class ServiceCollectionExtension
             cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
             cfg.AddBehavior(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
         });
+
+        GridifyGlobalConfiguration.EnableEntityFrameworkCompatibilityLayer();
 
         return services;
     }

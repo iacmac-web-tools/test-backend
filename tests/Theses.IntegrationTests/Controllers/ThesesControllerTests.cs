@@ -1,18 +1,15 @@
 ﻿using System.Net;
 using System.Net.Http.Json;
-using System.Runtime.InteropServices;
 using System.Text.Json;
 using Bogus;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Theses.Api;
 using Theses.Api.Mappings.Create;
-using Theses.Api.Mappings.Get;
 using Theses.Api.Mappings.Person;
 using Theses.Api.Mappings.Thesis;
 using Theses.Api.Mappings.Update;
 using Theses.Application.Common.Models;
-using Theses.Application.Theses.Queries.Get;
-using Theses.Domain.Entities;
 
 namespace Theses.IntegrationTests.Controllers;
 
