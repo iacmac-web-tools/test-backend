@@ -6,10 +6,13 @@ using Bogus;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Theses.Api.Mappings.Create;
+using Theses.Api.Mappings.Get;
 using Theses.Api.Mappings.Person;
 using Theses.Api.Mappings.Thesis;
 using Theses.Api.Mappings.Update;
+using Theses.Application.Common.Models;
 using Theses.Application.Theses.Queries.Get;
+using Theses.Domain.Entities;
 
 namespace Theses.IntegrationTests.Controllers;
 
@@ -156,7 +159,7 @@ public class ThesesControllerTests : WebApplicationFactory<Program>
         var updateResponse = await client.PutAsJsonAsync($"api/theses/{createResponseDto.Id}", updateDto);
         updateResponse.StatusCode.Should().Be(HttpStatusCode.BadRequest);
     }
-    
+
     [Fact]
     private async Task CreateAndUpdate_WithInvalidId_ShouldReturn400()
     {
@@ -167,7 +170,7 @@ public class ThesesControllerTests : WebApplicationFactory<Program>
         var updateResponse = await client.PutAsJsonAsync("api/theses/-1", updateDto);
         updateResponse.StatusCode.Should().Be(HttpStatusCode.BadRequest);
     }
-    
+
     [Fact]
     private async Task CreateAndDelete_WithValidDto_ShouldReturnOk()
     {
@@ -189,12 +192,42 @@ public class ThesesControllerTests : WebApplicationFactory<Program>
         var deleteResponse = await client.DeleteAsync($"api/Theses/{createResponseDto.Id}");
         deleteResponse.StatusCode.Should().Be(HttpStatusCode.OK);
     }
-    
+
     [Fact]
     private async Task Delete_WithInvalidId_ShouldReturn400()
     {
         var client = CreateClient();
         var deleteResponse = await client.DeleteAsync("api/Theses/-1");
         deleteResponse.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+    }
+
+    [Fact]
+    private async Task GetPaginatedList_WithValidDto_ShouldReturnList()
+    {
+        const int pageNumber = 1;
+        const int pageSize = 3;
+        const int thesesNumber = 10;
+        var client = CreateClient();
+        var createDtos = Enumerable.Range(1, thesesNumber)
+            .Select(_ => new CreateThesisDto(
+                _fakePersonsDtoGenerator.Generate(1).First(),
+                FakeEmail,
+                _fakePersonsDtoGenerator.GenerateBetween(0, 3),
+                FakeTopic,
+                FakeContent));
+        var sendTasks = Enumerable.Range(1, thesesNumber)
+            .Select(x => client.PostAsJsonAsync("api/theses", createDtos.ElementAt(x - 1)));
+        await Task.WhenAll(sendTasks);
+
+        var getResponse = await client.GetAsync($"api/Theses?pageNumber={pageNumber}&pageSize={pageSize}");
+        var getResponseDto =
+            await JsonSerializer.DeserializeAsync<PaginatedList<ThesisDto>>(await getResponse.Content.ReadAsStreamAsync(),
+                JsonWebSerializerOptions.Instance);
+
+        getResponseDto.Should().NotBeNull();
+        getResponseDto?.TotalItems.Should().Be(thesesNumber);
+        getResponseDto?.PageNumber.Should().Be(pageNumber);
+        getResponseDto?.PageSize.Should().Be(pageSize);
+        getResponseDto?.TotalPages.Should().Be((int)Math.Ceiling((double)thesesNumber / pageSize));
     }
 }
