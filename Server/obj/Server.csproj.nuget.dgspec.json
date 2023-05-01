@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\TestTask\\Server\\Server.csproj": {}
+    "G:\\TestTask\\test-backend\\Server\\Server.csproj": {}
   },
   "projects": {
-    "G:\\TestTask\\Server\\Server.csproj": {
+    "G:\\TestTask\\test-backend\\Server\\Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\TestTask\\Server\\Server.csproj",
+        "projectUniqueName": "G:\\TestTask\\test-backend\\Server\\Server.csproj",
         "projectName": "Server",
-        "projectPath": "G:\\TestTask\\Server\\Server.csproj",
+        "projectPath": "G:\\TestTask\\test-backend\\Server\\Server.csproj",
         "packagesPath": "C:\\Users\\Ptvkz\\.nuget\\packages\\",
-        "outputPath": "G:\\TestTask\\Server\\obj\\",
+        "outputPath": "G:\\TestTask\\test-backend\\Server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ptvkz\\AppData\\Roaming\\NuGet\\NuGet.Config",

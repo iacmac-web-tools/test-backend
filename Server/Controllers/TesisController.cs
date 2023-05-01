@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System.Text.Json;
 using System.Xml.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 
 namespace Server.Controllers
 {
@@ -17,6 +18,10 @@ namespace Server.Controllers
             using (DataBaseContext db = new DataBaseContext())
             {
                 var tesises = db.Tesises.ToList();
+                if (tesises.Count == 0)
+                {
+                    HealthCheckResult.Unhealthy("Cписок тезисов пуст!");
+                }
                 var response = new
                 {
                     tesesis = tesises,
@@ -35,6 +40,10 @@ namespace Server.Controllers
             using (DataBaseContext db = new DataBaseContext())
             {
                 var tesises = db.Tesises.ToList();
+                if (tesises.Count == 0)
+                {
+                    HealthCheckResult.Unhealthy("Cписок тезисов пуст!");
+                }
                 Tesis? tesis = System.Text.Json.JsonSerializer.Deserialize<Tesis>(jsonData);
                 if(tesises.Count == 0)
                 {
@@ -46,12 +55,6 @@ namespace Server.Controllers
 
                 db.Tesises.Add(tesis);
                 db.SaveChanges();
-                Console.WriteLine();
-                foreach (var a in db.Tesises.ToList())
-                {
-                    
-                    Console.WriteLine(a.head + " - ID");
-                }
                 Console.WriteLine();
             }
         }
@@ -89,6 +92,11 @@ namespace Server.Controllers
                     tesises.autorWork = tesis.autorWork;
                     db.Tesises.Update(tesises);
                     db.SaveChanges();
+                }
+                else
+                {
+                    HealthCheckResult.Degraded($"Тезиса с id = {id} не существует!");
+                    return Results.StatusCode(406);
                 }
                 var tesisesMas = db.Tesises.ToList();
                 var response = new
