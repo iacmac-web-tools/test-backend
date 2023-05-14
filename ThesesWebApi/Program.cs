@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using ThesesWebApi.Data;
+using ThesesWebApi.Helper;
+using ThesesWebApi.Interfaces;
+using ThesesWebApi.Repository;
 
 namespace ThesesWebApi
 {
@@ -10,6 +13,10 @@ namespace ThesesWebApi
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddAutoMapper(typeof(MappingProfiles));
+
+            builder.Services.AddScoped<IThesisRepository, SqliteThesisRepository>();
+
             builder.Services.AddDbContext<DataContext>(options =>
             {
                 options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
