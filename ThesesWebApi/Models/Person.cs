@@ -11,7 +11,6 @@ namespace ThesesWebApi.Models
         [Required]
         [MaxLength(50), MinLength(2)]
         public string LastName { get; set; }
-        [MaxLength(50), MinLength(2)]
         public string? MiddleName { get; set; }
         [Required]
         [MaxLength(50), MinLength(2)]
