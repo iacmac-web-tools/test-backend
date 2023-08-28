@@ -1,0 +1,14 @@
+C:\Users\фис\source\repos\test-backend\ThesesDomain\bin\Debug\net6.0\ThesesDomain.deps.json
+C:\Users\фис\source\repos\test-backend\ThesesDomain\bin\Debug\net6.0\ThesesDomain.runtimeconfig.json
+C:\Users\фис\source\repos\test-backend\ThesesDomain\bin\Debug\net6.0\ThesesDomain.dll
+C:\Users\фис\source\repos\test-backend\ThesesDomain\bin\Debug\net6.0\ThesesDomain.pdb
+C:\Users\фис\source\repos\test-backend\ThesesDomain\obj\Debug\net6.0\ThesesDomain.csproj.AssemblyReference.cache
+C:\Users\фис\source\repos\test-backend\ThesesDomain\obj\Debug\net6.0\ThesesDomain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\фис\source\repos\test-backend\ThesesDomain\obj\Debug\net6.0\ThesesDomain.AssemblyInfoInputs.cache
+C:\Users\фис\source\repos\test-backend\ThesesDomain\obj\Debug\net6.0\ThesesDomain.AssemblyInfo.cs
+C:\Users\фис\source\repos\test-backend\ThesesDomain\obj\Debug\net6.0\ThesesDomain.csproj.CoreCompileInputs.cache
+C:\Users\фис\source\repos\test-backend\ThesesDomain\obj\Debug\net6.0\ThesesDomain.dll
+C:\Users\фис\source\repos\test-backend\ThesesDomain\obj\Debug\net6.0\refint\ThesesDomain.dll
+C:\Users\фис\source\repos\test-backend\ThesesDomain\obj\Debug\net6.0\ThesesDomain.pdb
+C:\Users\фис\source\repos\test-backend\ThesesDomain\obj\Debug\net6.0\ThesesDomain.genruntimeconfig.cache
+C:\Users\фис\source\repos\test-backend\ThesesDomain\obj\Debug\net6.0\ref\ThesesDomain.dll

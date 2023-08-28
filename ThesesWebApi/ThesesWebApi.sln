@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34009.444
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThesesWebApi", "ThesesWebApi.csproj", "{8427572B-FAB1-49D5-9C11-07FDE3ADBCAD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{8DDC15E3-6CA2-4BB2-962B-F5DE7E7D7E41}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{15D4A56C-7273-43F5-AC5B-73A892F24B7B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8C0EB6A4-F247-42C4-8816-891C40490920}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThesesDomain", "..\ThesesDomain\ThesesDomain.csproj", "{D94264C6-1683-474D-8B79-2E8DCADC08E3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{EF2B1D29-A1F5-4EDC-A3D5-5824D8803BF1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8427572B-FAB1-49D5-9C11-07FDE3ADBCAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8427572B-FAB1-49D5-9C11-07FDE3ADBCAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8427572B-FAB1-49D5-9C11-07FDE3ADBCAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8427572B-FAB1-49D5-9C11-07FDE3ADBCAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D94264C6-1683-474D-8B79-2E8DCADC08E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D94264C6-1683-474D-8B79-2E8DCADC08E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D94264C6-1683-474D-8B79-2E8DCADC08E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D94264C6-1683-474D-8B79-2E8DCADC08E3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8427572B-FAB1-49D5-9C11-07FDE3ADBCAD} = {15D4A56C-7273-43F5-AC5B-73A892F24B7B}
+		{D94264C6-1683-474D-8B79-2E8DCADC08E3} = {8DDC15E3-6CA2-4BB2-962B-F5DE7E7D7E41}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C33DD158-3A2D-4F38-971D-C056C0A98DFC}
+	EndGlobalSection
+EndGlobal
