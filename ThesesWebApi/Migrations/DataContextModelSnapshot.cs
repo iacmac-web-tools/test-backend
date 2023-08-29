@@ -55,7 +55,7 @@ namespace ThesesWebApi.Migrations
 
                     b.HasIndex("ThesisFormId");
 
-                    b.ToTable("person");
+                    b.ToTable("person", (string)null);
                 });
 
             modelBuilder.Entity("ThesesDomain.Models.ThesisForm", b =>
@@ -88,7 +88,7 @@ namespace ThesesWebApi.Migrations
 
                     b.HasIndex("mainAuthorId");
 
-                    b.ToTable("form");
+                    b.ToTable("form", (string)null);
                 });
 
             modelBuilder.Entity("ThesesDomain.Models.ThesisResource", b =>
@@ -126,7 +126,7 @@ namespace ThesesWebApi.Migrations
 
                     b.HasIndex("otherAuthorsId");
 
-                    b.ToTable("theses");
+                    b.ToTable("theses", (string)null);
                 });
 
             modelBuilder.Entity("ThesesDomain.Models.ThesisTableItemResource", b =>
@@ -159,7 +159,7 @@ namespace ThesesWebApi.Migrations
 
                     b.HasIndex("ThesisTableItemResourceDataTableResultId");
 
-                    b.ToTable("tableItemResource");
+                    b.ToTable("tableItemResource", (string)null);
                 });
 
             modelBuilder.Entity("ThesesDomain.Models.ThesisTableItemResourceDataTableResult", b =>
@@ -184,7 +184,7 @@ namespace ThesesWebApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("dataTableResults");
+                    b.ToTable("dataTableResults", (string)null);
                 });
 
             modelBuilder.Entity("ThesesDomain.Models.PersonResource", b =>

@@ -4,6 +4,48 @@
         <name>ThesesWebApi</name>
     </assembly>
     <members>
+        <member name="M:ThesesWebApi.Controllers.ThesesController.Gettheses(System.Int32,System.Int32)">
+            <summary>
+            Получение постраничного списка тезисов
+            </summary>
+            <param name="thesisForm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ThesesWebApi.Controllers.ThesesController.PostThesis(ThesesDomain.Models.ThesisForm)">
+            <summary>
+            Добавить новый тезис
+            </summary>
+            <param name="thesisForm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ThesesWebApi.Controllers.ThesesController.GetAlltheses">
+            <summary>
+            Получение полного списка тезисов
+            </summary>
+            <param name="thesisForm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ThesesWebApi.Controllers.ThesesController.GetThesisResource(System.Int32)">
+            <summary>
+            Получить полную информацию по одному тезису
+            </summary>
+            <param name="thesisForm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ThesesWebApi.Controllers.ThesesController.PutThesisResource(System.Int32,ThesesDomain.Models.ThesisForm)">
+            <summary>
+            Изменить тезис
+            </summary>
+            <param name="thesisForm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ThesesWebApi.Controllers.ThesesController.DeleteThesis(System.Int32)">
+            <summary>
+            Удалить тезис
+            </summary>
+            <param name="thesisForm"></param>
+            <returns></returns>
+        </member>
         <member name="T:ThesesWebApi.Migrations.InitialCreate">
             <inheritdoc />
         </member>

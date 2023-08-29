@@ -9,7 +9,7 @@ namespace ThesesDomain.Models
 {
     public class ThesisResource
     {
-        public int? id { get; set; }
+        public int id { get; set; }
         public PersonResource? mainAuthor { get; set; }
         public string? contactEmail { get; set; } = string.Empty;
         public PersonResource? otherAuthors { get; set; }

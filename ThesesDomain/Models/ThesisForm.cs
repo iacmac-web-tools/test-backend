@@ -24,6 +24,6 @@ namespace ThesesDomain.Models
         public string topic { get; set; } = string.Empty;
         [Required]
         [StringLength(5000)]
-        public string? content { get; set; } = String.Empty;
+        public string? content { get; set; } = string.Empty;
     }
 }
