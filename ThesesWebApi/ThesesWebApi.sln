@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThesesDomain", "..\ThesesDo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{EF2B1D29-A1F5-4EDC-A3D5-5824D8803BF1}"
 EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "Theses.Frontend", "..\Theses.Frontend\Theses.Frontend.esproj", "{D0779D27-8DEA-4541-BA2A-CA3A4857A89F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,12 @@ Global
 		{D94264C6-1683-474D-8B79-2E8DCADC08E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D94264C6-1683-474D-8B79-2E8DCADC08E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D94264C6-1683-474D-8B79-2E8DCADC08E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0779D27-8DEA-4541-BA2A-CA3A4857A89F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0779D27-8DEA-4541-BA2A-CA3A4857A89F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0779D27-8DEA-4541-BA2A-CA3A4857A89F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D0779D27-8DEA-4541-BA2A-CA3A4857A89F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0779D27-8DEA-4541-BA2A-CA3A4857A89F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0779D27-8DEA-4541-BA2A-CA3A4857A89F}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +44,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{8427572B-FAB1-49D5-9C11-07FDE3ADBCAD} = {15D4A56C-7273-43F5-AC5B-73A892F24B7B}
 		{D94264C6-1683-474D-8B79-2E8DCADC08E3} = {8DDC15E3-6CA2-4BB2-962B-F5DE7E7D7E41}
+		{D0779D27-8DEA-4541-BA2A-CA3A4857A89F} = {15D4A56C-7273-43F5-AC5B-73A892F24B7B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C33DD158-3A2D-4F38-971D-C056C0A98DFC}
