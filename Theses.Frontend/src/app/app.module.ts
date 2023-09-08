@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ThesesListComponent } from './components/theses/theses-list/theses-list.component';
-import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -14,7 +16,7 @@ const routes: Routes = [
     path: 'theses',
     component: ThesesListComponent
   }
-]; // sets up routes constant where you define your routes
+];
 
 @NgModule({
   declarations: [
@@ -23,11 +25,12 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule,
+    HttpClientModule
   ],
   exports: [RouterModule],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-export class AppRoutingModule { }
